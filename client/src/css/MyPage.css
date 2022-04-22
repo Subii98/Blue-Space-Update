@@ -1,0 +1,109 @@
+.my-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.column {
+    float: left;
+}
+
+.profile {
+    flex: 15%;
+    border-style: solid;
+    border-radius: 5px 0px 0px 5px;
+    border-color: #d2d2d2;
+    border-width: 1px;
+    overflow: hidden;
+    border-right-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.side {
+    display: flex;
+    height: 100%;
+}
+
+.platforms-list {
+    flex: 75%;
+    border-style: solid;
+    border-radius: 0px 5px 5px 0px;
+    border-color: #d2d2d2;
+    border-width: 1px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.ownedPlatforms{
+    display: flex;
+    flex-direction: row;
+}
+.name-box {
+    width: 100%;
+    text-align: left;
+}
+
+.info-box {
+    flex: 0 0 1px;
+    flex-direction: column;
+}
+
+.platform-container {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.platform-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+.platform-box > p {
+    text-align: center;
+    color: #929292;
+}
+
+.stat {
+    color: #929292;
+    text-align: center;
+    margin: 5%;
+    text-decoration:underline;
+}
+
+.stat-value {
+    display:flex;
+    text-align: center;
+}
+
+.child{
+    flex:1;
+    text-align: center;
+    margin: 10%;
+}
+
+.profile-image img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #00aeef;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.badge-image img{
+    height: 10px;
+    width: 10px;
+}
+

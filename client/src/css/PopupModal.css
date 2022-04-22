@@ -1,0 +1,30 @@
+.modal {
+  position: absolute;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  top:50%;
+  left:25%;
+  width: 60%;
+  z-index: 1000;
+}
+.modal-container {
+  width:100%;
+}
+
+input[type=text].popup, input[type=textarea].popup {
+  width:100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
+.popupButton:hover {
+  background-color: #45a049;
+}
+
