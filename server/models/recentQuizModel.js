@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const recentQuizModelSchema = new mongoose.Schema({
   userID: {
     type: String,
-    //unique: true,
   },
   quizID: {
     type: String,
