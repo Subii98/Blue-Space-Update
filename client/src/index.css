@@ -1524,3 +1524,48 @@ th button:disabled{
 
 /*end of createQuestion*/
 
+/* Start of Help Page */
+.helpPage {
+  display: block;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #d2d2d2;
+}
+
+.helpPage p{
+  font-size: 2rem;
+  margin-bottom: 7rem;
+  margin-top: 5rem;
+}
+
+.helpHeaderButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.helpHeaderButtons button{
+  border-style: none;
+  background: none;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.helpHeaderButtons button:hover{
+  cursor: pointer;
+}
+
+.helpButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.helpLine{
+  width: 10rem;
+  border-top: 2px solid;
+  margin-bottom: 2rem;
+}
+/* End of Help Page */
+

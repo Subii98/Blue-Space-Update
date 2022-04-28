@@ -20,14 +20,6 @@ SwiperCore.use([Navigation, Pagination]);
 
 function SwiperCategories() {
     const slides = [];
-    /* const lizardInfo = {name:"Lizzard", description: "Lizards from all sizes are included. Lizards are one the most amazing creatures on earth",image: "./images/lizard.jpg",route: "/search", search: 'lizzard'};
-    const bluespace = {name: "BlueSPace", description :"Quiz on blue space the website", 
-    image: "./images/logo11.png",route: "/search", search: 'bluespace'};
-    const filler = {name: "Filler", description :"Will search for test", image: "./images/logo11.png",route: "/search", search: "test"};
-    const sea = {name: "Deep Sea", description :"Deep Fish of the Sea", image: "./images/deepfish.jpg",route: "/search", search: "fish"};
-    const tiger = {name: "Tigers", description :"All about tigers", image: "./images/tiger.jpg",route: "/search", search: "tiger"};
-    const icecream = {name: "Ice Cream", description :"Ice Cream", image: "./images/icecream.jpg",route: "/search", search: "cream"};
-    const catinfo = [bluespace,lizardInfo,filler, sea,tiger,icecream ] */
     const entertainment = [
       {name: "Music", image: "/images/category/category_music.jpg", icon: "/images/category/icon/music.png", route: "/search", search: "music"},
       {name: "Movie", image: "/images/category/category_movie.jpg", icon: "/images/category/icon/pop-corn.png", route: "/search", search: "movie"},
