@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card, CardContent, CardMedia, Typography, CardActionArea, Button } from "@mui/material";
 import { Link, useHistory } from "react-router-dom";
 import Box from '@mui/material/Box';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 function QuizCard(props) {
     const history = useHistory();
@@ -130,18 +131,18 @@ function QuizCard(props) {
                                     color="text.secondary"
                                     sx={{display: 'flex', flexDirection:'row', alignItems:'center'}}
                                 >
-                                    <img src="/images/icon/like.png" style={{ width: '1.3rem', objectFit: 'contain', marginRight: '0.3rem'}} />
+                                    <img src="/images/icon/like.png" style={{ width: '1.5rem', objectFit: 'contain', marginRight: '0.3rem'}} />
                                     {props.quiz.likes}
                             </Typography>
+                            <Button
+                                    style={isOwner ? {color: "#00aeef"} : { display: "none" }}
+                                    onClick={() => history.push("/CreateQuestion/" + props.quiz._id)}
+                                >
+                                    <EditOutlinedIcon sx={{fontSize: 20}}/>EDIT
+                            </Button>
                         </Box>
                     </Box>
                 </CardActionArea>
-                <Button
-                        style={isOwner ? {} : { display: "none" }}
-                        onClick={() => history.push("/CreateQuestion/" + props.quiz._id)}
-                    >
-                        Create/Edit Question
-                </Button>
             </Card>
             <br />
         </div>

@@ -66,7 +66,7 @@ function PlatformCard(props) {
                                 {props.platform.userName}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div" sx={{display: 'flex', flexDirection:'row', alignItems:'center'}}>
-                                <img src="/images/icon/bell1.png" style={{width: '1.3rem', objectFit: 'contain', marginRight: '0.3rem'}}/>{props.platform.subscriber.length}
+                                <img src="/images/icon/bell1.png" style={{width: '1.5rem', objectFit: 'contain', marginRight: '0.3rem'}}/>{props.platform.subscriber.length}
                             </Typography>
                         </Box>
                     </Box>}
