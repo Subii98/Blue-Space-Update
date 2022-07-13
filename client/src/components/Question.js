@@ -30,6 +30,7 @@ function Question(props) {
     const [hintCount, setHintCount] = useState(0)
     const [usedPoints, setUsedPoints] = useState(0)
     const [likes, setLikes] = useState(0)
+    const [selectedOption, setSelectedOption] = useState(0)
     
 
     //const question = questions[index]
@@ -45,7 +46,6 @@ function Question(props) {
             })
             .catch(error => {
                 setError("Error finding quiz");
-                console.log("Error finding quiz");
             });
         let userData = localStorage.getItem("data");
         userData = JSON.parse(userData);
@@ -84,6 +84,7 @@ function Question(props) {
             setAddTimeDisable(false)
             setHintDisable(false)
             setHintCount(0)
+            setSelectedOption(0)
         }
     }, [index]);
 
@@ -97,44 +98,45 @@ function Question(props) {
     }, [timeOut])
 
     useEffect(()=> {
-        if (hintCount == 3)
+        if (hintCount === 3)
             setHintDisable(true)
-    }, [checked, addTimeDisable, hintCount])
+    }, [checked, addTimeDisable, hintCount, selectedOption])
 
     const onClickSaveCheckAnswer = e => {
-        console.log(question)
         e.preventDefault();
         setTimeOut(true)
         var ele = document.getElementsByTagName("input");
         for (var i = 0; i < ele.length; i++) {
-            if (ele[i].type == "radio") {
-                if (ele[i].checked && ele[i].value == question.answer) {
+            if (ele[i].type === "radio") {
+                if (ele[i].checked && ele[i].value === question.answer) {
                     setDisable(true);
                     setChecked(true);
+                    setSelectedOption(i)
                     setCount(count + 1);
                     setCorrect(true)
                     setAddTimeDisable(true)
                     const option = ele[i].value;
-                    if (option == "1") {
+                    if (option === "1") {
                         setFirst(first + 1);
-                    } else if (option == "2") {
+                    } else if (option === "2") {
                         setSecond(second + 1);
-                    } else if (option == "3") {
+                    } else if (option === "3") {
                         setThird(third + 1);
-                    } else if (option == "4") {
+                    } else if (option === "4") {
                         setFourth(fourth + 1);
                     }
                 } else if (ele[i].checked) {
                     setDisable(true);
                     setChecked(true);
+                    setSelectedOption(i)
                     const option = ele[i].value;
-                    if (option == "1") {
+                    if (option === "1") {
                         setFirst(first + 1);
-                    } else if (option == "2") {
+                    } else if (option === "2") {
                         setSecond(second + 1);
-                    } else if (option == "3") {
+                    } else if (option === "3") {
                         setThird(third + 1);
-                    } else if (option == "4") {
+                    } else if (option === "4") {
                         setFourth(fourth + 1);
                     }
 
@@ -164,7 +166,7 @@ function Question(props) {
                 setChecked(false);
                 setTimeOut(false)
                 setCorrect(false)
-            } else if (index == questions.length - 1) {
+            } else if (index === questions.length - 1) {
                 setCorrect(false)
                 setEndQuiz(true);
             }
@@ -183,18 +185,14 @@ function Question(props) {
         setHintCount(hintCount+1)
         setUsedPoints(usedPoints + 50)
         var ele = document.getElementsByTagName("input");
-        console.log(ele)
         var i = Math.floor(Math.random() * (ele.length - 1) + 1)
-        console.log(i)
-        if (ele[i].type == "radio" && ele[i].value != question.answer && ele[i].disabled != true){
+        if (ele[i].type === "radio" && ele[i].value !== question.answer && ele[i].disabled !== true){
             ele[i].disabled = true
         }
         else{
             while (true){
-                console.log("len",ele.length)
                 i = Math.floor(Math.random() * (ele.length - 1) + 1)
-                console.log(i)
-                if (ele[i].type == "radio" && ele[i].value != question.answer && ele[i].disabled != true){
+                if (ele[i].type === "radio" && ele[i].value !== question.answer && ele[i].disabled !== true){
                     ele[i].disabled = true
                     return
                 }
@@ -207,7 +205,7 @@ function Question(props) {
 
     }
 
-    if(question == undefined) return ( <div>LOADING..</div>)
+    if(question === undefined) return ( <div>LOADING..</div>)
     if (!endQuiz) {
         return (
             <div className="quizArea">
@@ -223,54 +221,90 @@ function Question(props) {
                     <div className="options">
                         {question.option.length >= 1
                             ? [
+                                <div className="options-choice" style={selectedOption === 1
+                                                                        ? correct
+                                                                            ? {borderColor: "#00aeef"}
+                                                                            : {borderColor: "red"}
+                                                                        : checked
+                                                                            ? question.answer === question.option[0]
+                                                                                ? {borderColor: "#00aeef"}
+                                                                                : null
+                                                                            : null}>
                                   <input
                                       type="radio"
                                       id="option1"
                                       name="option"
                                       value={question.option[0]}
                                       disabled={disable}
-                                  ></input>,
-                                  <label for="option1">{question.option[0]}</label>,
-                                  <br />,
+                                  ></input>
+                                  <label for="option1">{question.option[0]}</label>
+                                  <br /></div>
                               ]
                             : []}
                         {question.option.length >= 2
                             ? [
+                                <div className="options-choice" style={selectedOption === 2
+                                                                        ? correct
+                                                                            ? {borderColor: "#00aeef"}
+                                                                            : {borderColor: "red"}
+                                                                        : checked
+                                                                            ? question.answer === question.option[1]
+                                                                                ? {borderColor: "#00aeef"}
+                                                                                : null
+                                                                            : null}>
                                   <input
                                       type="radio"
                                       id="option2"
                                       name="option"
                                       value={question.option[1]}
                                       disabled={disable}
-                                  ></input>,
-                                  <label for="option2">{question.option[1]}</label>,
-                                  <br />,
+                                  ></input>
+                                  <label for="option2">{question.option[1]}</label>
+                                  <br /></div>
                               ]
                             : []}
                         {question.option.length >= 3
                             ? [
+                                <div className="options-choice" style={selectedOption === 3
+                                                                        ? correct
+                                                                            ? {borderColor: "#00aeef"}
+                                                                            : {borderColor: "red"}
+                                                                        : checked
+                                                                            ? question.answer === question.option[2]
+                                                                                ? {borderColor: "#00aeef"}
+                                                                                : null
+                                                                            : null}>
                                   <input
                                       type="radio"
                                       id="option3"
                                       name="option"
                                       value={question.option[2]}
                                       disabled={disable}
-                                  ></input>,
-                                  <label for="option3">{question.option[2]}</label>,
-                                  <br />,
+                                  ></input>
+                                  <label for="option3">{question.option[2]}</label>
+                                  <br /></div>
                               ]
                             : []}
                         {question.option.length >= 4
                             ? [
+                                <div className="options-choice" style={selectedOption === 4
+                                                                        ? correct
+                                                                            ? {borderColor: "#00aeef"}
+                                                                            : {borderColor: "red"}
+                                                                        : checked
+                                                                            ? question.answer === question.option[3]
+                                                                                ? {borderColor: "#00aeef"}
+                                                                                : null
+                                                                            : null}>
                                   <input
                                       type="radio"
                                       id="option4"
                                       name="option"
                                       value={question.option[3]}
                                       disabled={disable}
-                                  ></input>,
-                                  <label for="option4">{question.option[3]}</label>,
-                                  <br />,
+                                  ></input>
+                                  <label for="option4">{question.option[3]}</label>
+                                  <br /></div>
                               ]
                             : []}
                     </div>

@@ -419,6 +419,7 @@ img.hamburger{
   flex-direction: row;
   justify-content: space-between;
 }
+
 .questions {
   display: flex;
   flex-direction: column;
@@ -426,6 +427,26 @@ img.hamburger{
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
+
+.question {
+  margin-bottom: 3rem;
+}
+
+.options {
+  width: 70%;
+}
+
+.options-choice {
+  border: 1px solid;
+  border-color: #d2d2d2;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
 
 .save{
   margin-top: 2rem;
