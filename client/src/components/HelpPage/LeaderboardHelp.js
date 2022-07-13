@@ -3,7 +3,7 @@ import CollapsibleContent from "./CollapsibleContent.js";
 
 function LeaderboardHelp() {
     return (
-        <div>
+        <div className='qna-sections'>
             <CollapsibleContent title="How do I use the leaderboard?">
                 <p>You can click column headers to sort by that specific header!</p>
             </CollapsibleContent>

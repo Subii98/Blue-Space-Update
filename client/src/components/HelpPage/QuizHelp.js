@@ -3,7 +3,7 @@ import CollapsibleContent from "./CollapsibleContent.js";
 
 function QuizHelp() {
     return (
-        <div>
+        <div className='qna-sections'>
             <CollapsibleContent title="How many quizzes can users create?">
                 <p>Any amount they want but, they have to be a platform owner</p>
             </CollapsibleContent>

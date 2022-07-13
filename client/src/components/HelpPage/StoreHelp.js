@@ -3,7 +3,7 @@ import CollapsibleContent from "./CollapsibleContent.js";
 
 function StoreHelp() {
     return (
-        <div>
+        <div className='qna-sections'>
             <CollapsibleContent title="How do I buy items from the store?">
                 <p>Clicking on item will lead to a popup. Then confirming the popup will lead you to buy the item if you have enough points!</p>
             </CollapsibleContent>

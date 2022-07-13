@@ -16,10 +16,10 @@ function CollapsibleContent(props) {
     return (
         <div className={`panel ${expanded ? "is-expanded" : ""}`} onClick={handleSubmit}>
             <div className="panel-heading ">
-                <h2 className="panel-title">{title}</h2>
+                <div className="panel-title">{title}</div>
                 {expanded
-                    ? [<KeyboardArrowDownIcon className="arrow" sx={{ fontSize: 36 }}></KeyboardArrowDownIcon>]
-                    : [<KeyboardArrowUpIcon className="arrow" sx={{ fontSize: 36 }}></KeyboardArrowUpIcon>]}
+                    ? [<KeyboardArrowUpIcon className="arrow" sx={{ fontSize: 22 }}></KeyboardArrowUpIcon>]
+                    : [<KeyboardArrowDownIcon className="arrow" sx={{ fontSize: 22 }}></KeyboardArrowDownIcon>]}
             </div>
             <div className="panel-collapse">{children}</div>
         </div>

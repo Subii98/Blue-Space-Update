@@ -13,7 +13,7 @@ import StoreHelp from "../components/HelpPage/StoreHelp.js";
 import QuizHelp from "../components/HelpPage/QuizHelp.js";
 
 function Help() {
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = useState("platform");
 
     useEffect(() => {
 
