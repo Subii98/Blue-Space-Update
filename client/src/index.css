@@ -349,7 +349,7 @@ img.hamburger{
   border-style: solid;
   border-color: #d2d2d2;
   border-width: 1px;
-  padding: 2rem;
+  padding: 1rem 2rem 1rem 2rem;
 }
 
 .platformInfoArea a{
@@ -362,20 +362,38 @@ img.hamburger{
   flex-direction: column;
   margin: 0;
   font-size: 1.2rem;
+  width: auto;
 }
+
+.platformInfo span{
+  font-size: 1.5rem;
+}
+
 
 .platformTop{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end
 }
+
+.platformTop span{
+  margin-bottom: 1rem;
+}
+
+.platformLine{
+  width: 100%;
+  border-top: 1px solid #d2d2d2;
+  margin-bottom: 1rem;
+}
+
 .platformBottom{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
+
 .platformBottom button{
   color: #00aeef;
   border-color: #00aeef;
@@ -384,6 +402,19 @@ img.hamburger{
   border-width: 1px;
   background-color: transparent;
   padding: 1px 1.2rem;
+}
+
+.platformSettings{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platformSettings button {
+  border: none;
+  background: transparent;
+  color: #929292;
 }
 
 /*Start of Timer Component*/
@@ -463,10 +494,6 @@ img.hamburger{
   width: 100%;
 }
 
-.questionButtons button{
-  margin-bottom: 2rem
-}
-
 .save button{
   margin-right: 1rem
 }
@@ -484,7 +511,7 @@ img.hamburger{
 .pointButtons{
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
   justify-content: space-evenly;
 }
 
@@ -508,7 +535,14 @@ img.hamburger{
 .questionArrow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.questionArrow p{
+  font-size: 1.6rem;
+  color: #929292;
 }
 
 .questionArrow button{

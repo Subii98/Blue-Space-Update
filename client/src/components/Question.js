@@ -5,6 +5,7 @@ import { FetchApiPost } from "../utils/Network";
 import Timer from "../components/Timer.js";
 import Statistics from "./Statistics.js";
 import { set } from "mongoose";
+import EastIcon from '@mui/icons-material/East';
 
 function Question(props) {
     const [user, setUser] = useState()
@@ -324,7 +325,8 @@ function Question(props) {
                             <button className= "hint" disabled={hintDisable} onClick={e => {onClickHint(e)}}><img src="/images/big-light.png"/>HINT</button>
                         </div>
                         <div className="questionArrow">
-                            <button disabled={!disable} onClick={e => {onNextClick(e)}}>NEXT</button>
+                            <p>{index+1} of {questions.length}</p>
+                            <button disabled={!disable} onClick={e => {onNextClick(e)}}><EastIcon sx={{ fontSize: 30}}/></button>
                         </div>
                     </div>
                 </form>

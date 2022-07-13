@@ -4,6 +4,7 @@ import "../index.css";
 import { FetchApiPost } from "../utils/Network";
 import axios from "axios";
 import { Button, Hidden } from "@mui/material";
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 function PostArea(props) {
     const history = useHistory();
@@ -91,7 +92,18 @@ function PostArea(props) {
                 />
             </div>
             <div className="platformInfoArea">
-                <img src={platform.icon} alt="platformprofile" />
+                <div className="platformSettings">
+                        <span></span>
+
+                        <button
+                            style={isOwner ? {} : { display: "none" }}
+                            type="button"
+                            onClick={onClickEdit}
+                        >
+                            <SettingsOutlinedIcon sx={{ fontSize: 20 }}/>
+                        </button>
+                </div>
+                <img src={platform.icon} alt="platformprofile" style={{marginBottom: "20px"}}/>
                 <div className="platformInfo">
                     <div className="platformTop">
                         <a href="" Style={"color:" + platform.fontColor}>
@@ -99,6 +111,7 @@ function PostArea(props) {
                         </a>
                         <span>{platform.userName}</span>
                     </div>
+                    <div className="platformLine" />
                     <div className="platformBottom">
                         <span>{platform.description}</span>
                         {subscribeButton}
@@ -110,17 +123,6 @@ function PostArea(props) {
                         >
                             {isSubscribed ? "UNSUBSCRIBE" : "SUBSCRIBE"}
                         </Button> */}
-                    </div>
-                    <div className="platformBottom">
-                        <span></span>
-
-                        <button
-                            style={isOwner ? {} : { display: "none" }}
-                            type="button"
-                            onClick={onClickEdit}
-                        >
-                            EDIT
-                        </button>
                     </div>
                 </div>
             </div>
