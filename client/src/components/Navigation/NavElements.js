@@ -81,7 +81,6 @@ function NavElements() {
         const value = target.value;
 
         setModalFeedback(value);
-        console.log("modal changed feedback" , modalFeedback);
     }
     const handleEmailChange = e => {
         const target = e.target;
@@ -98,7 +97,6 @@ function NavElements() {
         setShowModal(false);
         setModalFeedback("");
         setEmail("");
-        console.log("modal closed");
     }
 
     const feedbackSubmit = async (e) =>{

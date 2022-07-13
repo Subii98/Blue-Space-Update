@@ -16,7 +16,6 @@ function CreateQuiz(props) {
     const [imageRef, setImageRef] = useState();
     const [image, setImage] = useState("");
     const [imageURL, setImageURL] = useState("/images/sample.jpeg")
-    console.log(props.match.params);
     
     const onClickSubmit = async () => {
         let res = await FetchApiPostWithFile("/api/quizzes/insert", [image],{

@@ -119,7 +119,6 @@ function EditPlatform(props) {
         let res = await FetchApiDelete("/api/platforms/platformDelete", {
             platformId: platform._id,
         });
-        console.log(res);
         alert("platform delete");
         // history.goBack();
     };

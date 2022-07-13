@@ -58,12 +58,8 @@ function Login() {
     
   });
   refreshTokenSetup(googleData);
-
-  console.log("logged in");  
   
   const data = await res.json();
-  console.log("message:", res.message);
-  console.log("data var: ", data);
   
   if (res.status == 200){
       localStorage.setItem("signed-in", true);

@@ -50,7 +50,6 @@ function CreatePlatform(props) {
             try {
                 setLoading(true);
                 const { data } = await axios.get("/api/platforms");
-                console.log(data);
                 setLoading(false);
                 setPlatforms(JSON.stringify(data));
             } catch (err) {
@@ -62,7 +61,6 @@ function CreatePlatform(props) {
     }, []);
 
     useEffect(() => {
-        console.log(store);
         // setName(store.username)
         setUserName(store.username);
         fetchUser();

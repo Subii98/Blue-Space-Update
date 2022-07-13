@@ -9,7 +9,6 @@ import { ConstructionOutlined } from "@mui/icons-material";
 
 function CreateQuestion(props) {
     const history = useHistory();
-    console.log(props);
     const [text, setText] = useState("");
     const [answer, setAnswer] = useState("");
     const [optionOne, setOptionOne] = useState("");
@@ -45,7 +44,6 @@ function CreateQuestion(props) {
     }, [update]);
 
     useEffect(() => {
-        console.log("index updated");
         if (index == max) {
             setText("");
             setAnswer("");
@@ -56,8 +54,6 @@ function CreateQuestion(props) {
             if (max > 0) {
                 setQuestionID(quiz[index - 1].questionNum + 1);
             }
-            console.log("Questionid:",questionID);
-            console.log("index num:", index);
         } else {
             setText(quiz[index].text);
             setAnswer(quiz[index].answer);
@@ -198,7 +194,6 @@ function CreateQuestion(props) {
                 //setLoading(true);
                 const data = res?.data;
                 setMax(data.length);
-                console.log("quiz data", data);
                 setQuiz(data);
                 
                 setIndex(0);

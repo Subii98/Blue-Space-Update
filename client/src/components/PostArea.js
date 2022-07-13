@@ -65,9 +65,7 @@ function PostArea(props) {
         history.push("/EditPlatform/" + platform._id);
     };
 
-    if (platform == undefined) return <div>LOADING..</div>;
-    console.log(platform);
-    console.log(user);
+    if (platform === undefined) return <div>LOADING..</div>;
 
     let subscribeButton;
     if (!isOwner) {

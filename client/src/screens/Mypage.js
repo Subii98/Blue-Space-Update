@@ -76,7 +76,6 @@ function MyPage(props) {
                 const { data } = await axios.get("/api/platforms/" + user._id);
                 setLoading(false);
                 setPlatforms(data);
-                console.log("dataaaa", user.subscribedPlatforms);
                 user.subscribedPlatforms.map((raw, idx) => {
                     subscribe(raw);
                 });

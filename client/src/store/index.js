@@ -74,10 +74,6 @@ export const useGlobalStore = () => {
   // RESPONSE TO EVENTS INSIDE OUR COMPONENTS.
 
   store.logIn = function(data){
-      console.log('data', data);
-      console.log(data.username);
-      console.log(data.email);
-      console.log(data.actualName);
     storeReducer({
       type: GlobalStoreActionType.SIGN_IN,
       payload: {

@@ -17,7 +17,6 @@ function QuizScore(props){
     const [quizDetails, setQuizDetails] = useState(); //used for creation of recent quiz
     const [likes, setLikes] = useState(props.likes)
 
-    console.log("quiz ID for quizscore is ", props.quizID);
     const history = useHistory();
 
     useEffect(()=> {
@@ -55,7 +54,6 @@ function QuizScore(props){
             if ((tmpExp / 106) * 100 >= 100){
                 setLevel(level + 1)
                 setLevelUp(true)
-                console.log("3")
                 setExpBarAmount(( ((tmpExp / 106) * 100 )-100) / 198)
             }
         }
@@ -123,8 +121,6 @@ function QuizScore(props){
     }
     //saves a record in recent quizzes
     const record = async () => {
-        console.log("quizdetails info" , quizDetails);
-        console.log("quiz id is " , props.quizID);
         let res = await FetchApiPost("/api/recentquiz/record", {
             userID: user._id,
             quizID: props.quizID,

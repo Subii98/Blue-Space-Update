@@ -22,7 +22,6 @@ function Logout() {
       
       store.logOut();
       localStorage.clear();
-      console.log("i logged out");
       
     };
     return (
