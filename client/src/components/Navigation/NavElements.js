@@ -110,18 +110,20 @@ function NavElements() {
     
     return (
         <div className="navContainer">
-            <div className="navHeaders navElement">
+            <div className="nav-title" style={{marginBottom: "1rem"}}>
                 <HomeOutlinedIcon
-                    style={{ color: "gray" }}
-                    sx={{ fontSize: 28 }}
+                    style={{ color: "black", marginRight: "2px" }}
+                    sx={{ fontSize: 25 }}
                 ></HomeOutlinedIcon>
                 <a className="popup nButton" href="/">
                     Home
                 </a>
             </div>
-            <div className="navHeaders navElement">
-                <HistoryIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}></HistoryIcon>
-                Recent Quizzes
+            <div className="nav-element">
+                <div className='nav-title'>
+                    <HistoryIcon style={{ color: "black", marginRight: "2px" }} sx={{ fontSize: 25 }}></HistoryIcon>
+                    Recent Quizzes
+                </div>
                 <div className="linksContainer">
                     {quizzes
                         ? quizzes.map((quiz, index) => {
@@ -130,18 +132,20 @@ function NavElements() {
                               const quizIds = quiz._id;
                               return (
                                   <ui className="navLinks">
-                                      <a href={`/quiz/${quizIds}`}>{quizName}</a>
+                                      <a href={`/quiz/${quizIds}`}>{index+1}. {quizName}</a>
                                   </ui>
                               );
                           })
                         : null}
                 </div>
             </div>
-            <div className="navHeaders navElement">
-                <FolderSharedOutlinedIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}>
-                    {" "}
-                </FolderSharedOutlinedIcon>
-                Subscribed Platforms
+            <div className="nav-element">
+                <div className='nav-title'>
+                    <FolderSharedOutlinedIcon style={{ color: "black", marginRight: "2px" }} sx={{ fontSize: 25 }}>
+                        {" "}
+                    </FolderSharedOutlinedIcon>
+                    Subscribed Platforms
+                </div>
                 <div className="linksContainer">
                     {subscribedID
                         ? subscribedID.map((sub, index) => {
@@ -149,18 +153,20 @@ function NavElements() {
                               const subName = subscribedNames[index];
                               return (
                                   <ui className="navLinks">
-                                      <a href={`/platform/${sub}`}>{subName}</a>
+                                      <a href={`/platform/${sub}`}>{index+1}. {subName}</a>
                                   </ui>
                               );
                           })
                         : null}
                 </div>
             </div>
-            <div className="navHeaders navElement">
-                <FolderSharedOutlinedIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}>
-                    {" "}
-                </FolderSharedOutlinedIcon>
-                Suggested Platforms
+            <div className="nav-element">
+                <div className='nav-title'>
+                    <FolderSharedOutlinedIcon style={{ color: "black", marginRight: "2px" }} sx={{ fontSize: 25 }}>
+                        {" "}
+                    </FolderSharedOutlinedIcon>
+                    Suggested Platforms
+                </div>
                 <div className="linksContainer">
                     {top3
                         ? top3.map((plat, index) => {
@@ -168,32 +174,32 @@ function NavElements() {
                               const subName = plat.title
                               return (
                                   <ui className="navLinks">
-                                      <a href={`/platform/${plat._id}`}>{subName}</a>
+                                      <a href={`/platform/${plat._id}`}>{index+1}. {subName}</a>
                                   </ui>
                               );
                           })
                         : null}
                 </div>
             </div>
-            <div className="navHeaders navElement">
-                <AnnouncementOutlinedIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}>
+            <div className="nav-title" style={{marginBottom: "1rem"}}>
+                <AnnouncementOutlinedIcon style={{ color: "black", marginRight: "2px" }} sx={{ fontSize: 25 }}>
                     {" "}
                 </AnnouncementOutlinedIcon>
                 <a className="popup" href="https://twitter.com" target="_blank">
                     Announcements on Twitter
                 </a>
             </div>
-            <div className="navHeaders navElement">
+            <div className="nav-element" style={{marginBottom: "1rem"}}>
                 <a className="popup" href="javascript:;" onClick={e => modalOpen(e)}>
-                    <TextsmsOutlinedIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}>
+                    <TextsmsOutlinedIcon style={{ color: "black", marginRight: "2px" }} sx={{ fontSize: 25 }}>
                         {" "}
                     </TextsmsOutlinedIcon>
                     Send Us Feedback
                 </a>
             </div>
 
-            <div className="navHeaders navElement copyright">
-                <CopyrightIcon style={{ color: "gray" }} sx={{ fontSize: 28 }}></CopyrightIcon>
+            <div className="nav-copyright">
+                <CopyrightIcon style={{ color: "#929292", marginRight: "2px"}} sx={{ fontSize: 20 }}></CopyrightIcon>
                 Blue-Space 2021
             </div>
             <div className={`send-feedback ${showModal ? "expanded" : ""}`}>
@@ -224,18 +230,21 @@ function NavElements() {
                             <div className="form-group">
                                 <button
                                     className="popupButton"
-                                    onClick={e => modalClose(e)}
+                                    onClick={e => feedbackSubmit(e)}
                                     type="button"
+                                    style={{backgroundColor: "#00aeef", color: "white"}}
                                 >
-                                    Cancel
+                                    SEND
                                 </button>
                                 <button
                                     className="popupButton"
-                                    onClick={e => feedbackSubmit(e)}
+                                    onClick={e => modalClose(e)}
                                     type="button"
+                                    style={{backgroundColor: "transparent", color: "#929292"}}
                                 >
-                                    Save
+                                    CANCEL
                                 </button>
+                                
                             </div>
                         </Modal>
                     </div>

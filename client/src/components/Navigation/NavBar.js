@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useContext, useEffect } from 'react'
 import { GlobalStoreContext } from "../../store";
 import { Link } from 'react-router-dom'
-import MenuIcon from "@mui/icons-material/Menu";
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import NavElements from './NavElements.js';
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import LoginHamburger from "../LoginHamburger.js";
@@ -29,13 +29,13 @@ function NavBar(children, ...rest) {
             {!store.loggedIn ? 
                 [<LoginHamburger>
                     <div className="menuIcon">
-                    <MenuIcon style={{ color: "gray" }}sx={{ fontSize: 36 }}> </MenuIcon>
+                    <MenuRoundedIcon style={{ color: "#d2d2d2" }}sx={{ fontSize: 36 }}> </MenuRoundedIcon>
                     </div>
                 </LoginHamburger>
                     
                 ] :
             [<div className="menuIcon" onClick={toggle}>
-                <MenuIcon style={{ color: "gray" }} sx={{ fontSize: 36 }}> </MenuIcon>
+                <MenuRoundedIcon style={{ color: "#d2d2d2" }} sx={{ fontSize: 36 }}> </MenuRoundedIcon>
             </div>] }
             
             {showNav ? <NavElements></NavElements> : null}

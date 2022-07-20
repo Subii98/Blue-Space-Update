@@ -69,12 +69,46 @@ nav {
   color: black;
   min-height: 4.8rem;
   display:flex;
-  align-items: center;
-  vertical-align:middle;
-  padding: 0 2rem 0 2.5rem; 
-  border-bottom:rgb(0, 174, 239, 0.05), 1px solid;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 0rem 0 2rem;
   flex-wrap: wrap;
+  font-size: 2rem;
+  height: 100%;
 }
+
+.navContainer a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.linksContainer a{
+  color: #00aeef;
+  font-size: 1.7rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-element{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
 .navElement {
   color: black;
   min-height: 4.8rem;
@@ -99,6 +133,17 @@ nav {
 .copyright {
   bottom:0px;
 }
+
+.nav-copyright{
+  font-size: 1.5rem;
+  color: #929292;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+
 .menuIcon {
   margin-right: 1rem;
   margin-bottom: 3rem;
@@ -106,7 +151,9 @@ nav {
   
 }
 a.popup {
-   color: inherit;  
+   color: inherit;
+   display: flex;
+   flex-direction: row;
 }
 
 .navLinks{
@@ -116,6 +163,13 @@ a.popup {
 .linksContainer{
   display: flex;
   flex-wrap: wrap;
+}
+
+.send-feedback button{
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  cursor: pointer;
 }
 /* nav::before {
   content: "";
@@ -233,7 +287,7 @@ img.hamburger{
   object-fit: cover;
   width: 5rem;
   height: 5rem;
-  border: 1px solid #00aeef;
+  border: 1px solid #929292;
 }
 
 .miniProfile{
