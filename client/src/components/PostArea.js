@@ -71,13 +71,16 @@ function PostArea(props) {
     let subscribeButton;
     if (!isOwner) {
         subscribeButton = (
-            <Button
+            <button
                 style={isSubscribed ? { backgroundColor: "#00aeef", color: "white" } : {}}
                 onClick={isSubscribed ? unsubscribe : subscribe}
             >
                 {isSubscribed ? "UNSUBSCRIBE" : "SUBSCRIBE"}
-            </Button>
+            </button>
         );
+    }
+    else {
+        subscribeButton = (<button disabled={true} style={{color: "#d2d2d2", borderColor: "#d2d2d2"}}>SUBSCRIBE</button>);
     }
 
     return (
