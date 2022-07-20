@@ -88,6 +88,7 @@ function CreatePlatform(props) {
             tag3: tag3,
         });
         alert("platform created!");
+        history.push("/");
     };
 
     const onChangeBanner = e => {
@@ -118,19 +119,19 @@ function CreatePlatform(props) {
                         className="tag-input"
                         value={tag1}
                         onChange={e => setTag1(e.target.value)}
-                        placeholder="#Tag1"
+                        placeholder="Tag1"
                     />
                     <input
                         className="tag-input"
                         value={tag2}
                         onChange={e => setTag2(e.target.value)}
-                        placeholder="#Tag2"
+                        placeholder="Tag2"
                     />
                     <input
                         className="tag-input"
                         value={tag3}
                         onChange={e => setTag3(e.target.value)}
-                        placeholder="#Tag2"
+                        placeholder="Tag3"
                     />
                 </div>
                 <div className="postArea">
@@ -142,57 +143,48 @@ function CreatePlatform(props) {
                         onChange={onChangeBanner}
                     />
                     <div className="cp-banner" style={{ backgroundImage : `url(${bannerURL})` }} onClick={onClickBanner} />
-                    <div className="platformInfoArea">
-                        <div>
-                            <img src={iconURL} onClick={onClickIcon} />
+                    <div className="cp-platformInfoArea">
+                            <img src={iconURL} onClick={onClickIcon} style={{border: "1px solid #d2d2d2"}}/>
                             <input
                                 ref={ref => setIconImageRef(ref)}
                                 id="file-input"
                                 type="file"
                                 onChange={onChangeIcon}
+                                style={{display: "none"}}
                             />
-                        </div>
-                        <div className="platformInfo">
-                            <div className="platformTop">
+                        <div className="cp-platformInfo">
+                            <div className="cp-platformTop">
                                 <input
                                     value={title}
                                     onChange={e => setTitle(e.target.value)}
                                     placeholder="Title"
                                     style={{ fontSize: "40px", width: "70%" }}
                                 />
-                                <input
-                                    type="color"
-                                    value={fontColor}
-                                    onChange={e => setFontColor(e.target.value)}
-                                />
+                                <div className="cp-fontcolor">
+                                    <p>Font Color</p>
+                                    <input
+                                        type="color"
+                                        value={fontColor}
+                                        onChange={e => setFontColor(e.target.value)}
+                                    />
+                                </div>                                
                                 <span>{store.username}</span>
                             </div>
+                            <div className="platformLine" />
                             <div className="platformBottom">
                                 <input
                                     value={description}
                                     onChange={e => setDescription(e.target.value)}
                                     placeholder="description"
-                                    style={{ fontSize: "12px", width: "70%" }}
+                                    style={{ fontSize: "1.5rem", width: "70%" }}
                                 />
-                                <Button
-                                    style={{
-                                        backgroundColor: "#00aeef",
-                                        color: "white",
-                                        float: "right",
-                                    }}
-                                >
-                                    {"SUBSCRIBE"}
-                                </Button>
-                            </div>
-                            <div className="platformBottom">
-                                <span></span>
-                                <button type="button">EDIT</button>
+                                <button>{"SUBSCRIBE"}</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Button
+                <div className="cp-buttons">
+                    <button
                     component={Link} to="/"
                         className="asd"
                         onClick={onClickSubmit}
@@ -203,20 +195,17 @@ function CreatePlatform(props) {
                         }}
                     >
                         {"SAVE"}
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                         onClick={() => history.goBack()}
                         style={{
-                            float: "right",
-                            color: "#00aeef",
-                            bordercolor: "#00aeef",
-                            borderradius: "5px",
-                            borderstyle: "solid",
-                            borderwidth: "1px",
+                            backgroundColor: "transparent",
+                            borderColor: "#929292",
+                            color: "#929292"
                         }}
                     >
                         {"CANCEL"}
-                    </Button>
+                    </button>
                 </div>
             </div>
         </div>

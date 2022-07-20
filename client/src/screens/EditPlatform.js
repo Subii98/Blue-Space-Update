@@ -120,7 +120,7 @@ function EditPlatform(props) {
             platformId: platform._id,
         });
         alert("platform delete");
-        // history.goBack();
+        history.push("/");
     };
 
     return (
@@ -137,19 +137,19 @@ function EditPlatform(props) {
                                 className="tag-input"
                                 value={tag1}
                                 onChange={e => setTag1(e.target.value)}
-                                placeholder="#Tag1"
+                                placeholder="Tag1"
                             />
                             <input
                                 className="tag-input"
                                 value={tag2}
                                 onChange={e => setTag2(e.target.value)}
-                                placeholder="#Tag2"
+                                placeholder="Tag2"
                             />
                             <input
                                 className="tag-input"
                                 value={tag3}
                                 onChange={e => setTag3(e.target.value)}
-                                placeholder="#Tag2"
+                                placeholder="Tag3"
                             />
                         </div>
                         <div className="postArea">
@@ -171,7 +171,7 @@ function EditPlatform(props) {
                                 }}
                                 onClick={onClickBanner}
                             />
-                            <div className="platformInfoArea">
+                            <div className="cp-platformInfoArea">
                                 <div>
                                     <img src={iconURL} onClick={onClickIcon} />
                                     <input
@@ -182,8 +182,8 @@ function EditPlatform(props) {
                                         onChange={onChangeIcon}
                                     />
                                 </div>
-                                <div className="platformInfo">
-                                    <div className="platformTop">
+                                <div className="cp-platformInfo">
+                                    <div className="cp-platformTop">
                                         <input
                                             value={title}
                                             onChange={e => setTitle(e.target.value)}
@@ -191,78 +191,65 @@ function EditPlatform(props) {
                                             style={{ fontSize: "40px", width: "70%" }}
                                         />
                                         {/* <span>title font color</span> */}
-                                        <input
-                                            type="color"
-                                            value={fontColor}
-                                            onChange={e => setFontColor(e.target.value)}
-                                        />
-
+                                        <div className="cp-fontcolor">
+                                            <p>Font Color</p>
+                                            <input
+                                                type="color"
+                                                value={fontColor}
+                                                onChange={e => setFontColor(e.target.value)}
+                                            />
+                                        </div>                                        
                                         <span>{store.username}</span>
                                     </div>
+                                    <div className="platformLine" />
                                     <div className="platformBottom">
                                         {/* <span>{platform.description}</span> */}
                                         <input
                                             value={description}
                                             onChange={e => setDescription(e.target.value)}
                                             placeholder="description"
-                                            style={{ fontSize: "12px", width: "70%" }}
+                                            style={{ fontSize: "1.5rem", width: "70%" }}
                                         />
-                                        <Button
-                                            style={{
-                                                backgroundColor: "#00aeef",
-                                                color: "white",
-                                                float: "right",
-                                            }}
-                                        >
-                                            {"SUBSCRIBE"}
-                                        </Button>
-                                    </div>
-                                    <div className="platformBottom">
-                                        <span></span>
-                                        <button type="button">EDIT</button>
-                                    </div>
+                                        <button>{"SUBSCRIBE"}</button>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <Button
-                                className="asd"
-                                onClick={onClickSubmit}
-                                style={{
-                                    backgroundColor: "#00aeef",
-                                    color: "white",
-                                    float: "right",
-                                }}
-                            >
-                                {"SAVE"}
-                            </Button>
-                            <Button
-                                onClick={() => history.goBack()}
-                                style={{
-                                    float: "right",
-                                    color: "#00aeef",
-                                    bordercolor: "#00aeef",
-                                    borderradius: "5px",
-                                    borderstyle: "solid",
-                                    borderwidth: "1px",
-                                }}
-                            >
-                                {"CANCEL"}
-                            </Button>
-                            <Button
-                            component={Link} to ="/"
-                                onClick={onClickDelete}
-                                style={{
-                                    float: "right",
-                                    color: "#00aeef",
-                                    bordercolor: "#00aeef",
-                                    borderradius: "5px",
-                                    borderstyle: "solid",
-                                    borderwidth: "1px",
-                                }}
-                            >
-                                {"DELETE"}
-                            </Button>
+                            <div className="cp-buttons">
+                                <button
+                                    className="asd"
+                                    onClick={onClickSubmit}
+                                    style={{
+                                        backgroundColor: "#00aeef",
+                                        color: "white",
+                                        float: "right",
+                                    }}
+                                >
+                                    {"SAVE"}
+                                </button>
+                                <button
+                                    component={Link} to ="/"
+                                        onClick={onClickDelete}
+                                        style={{
+                                            backgroundColor: "#929292",
+                                            borderColor: "#929292",
+                                            color: "white"
+                                        }}
+                                    >
+                                        {"DELETE"}
+                                </button>
+                                <button
+                                    onClick={() => history.goBack()}
+                                    style={{
+                                        backgroundColor: "transparent",
+                                        borderColor: "#929292",
+                                        color: "#929292"
+                                    }}
+                                >
+                                    {"CANCEL"}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
