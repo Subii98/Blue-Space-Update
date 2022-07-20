@@ -40,58 +40,56 @@ function CreateQuiz(props) {
         <div className="createquiz-main-container">
             {/* <Tags/> */}
             {/* <PostArea/>*/}
-            <Typography fontSize="30px" marginBottom="24px">
-                Create Quiz Screen
-            </Typography>
+            <p style={{fontSize: "2rem", textAlign: "center"}}>Create Quiz</p>
             <div className="createquiz-content">
-                <div className="createquiz-image-block">
-                    <div className="createquiz-content-block-label">IMAGE :</div>
-                    <img src={imageURL} onClick={onClickImage}/>
-                    <input
-                                ref={ref => setImageRef(ref)}
-                                id="file-input"
-                                type="file"
-                                onChange={onChangeImage}
-                            />
- 
+                <div className="createquiz-thumbnail">
+                    <p>Thumbnail</p>
+                    <div className="createquiz-image-block">
+                        <img src={imageURL} onClick={onClickImage}/>
+                        <input ref={ref => setImageRef(ref)} id="file-input" type="file" onChange={onChangeImage} />
+                    </div>
                 </div>
-                <div className="createquiz-content-block">
-                    <div className="createquiz-content-block-label">TITLE :</div>
-                    <TextField
-                        onChange={e => setTitle(e.target.value)}
-                        value={title}
-                        label="Title"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
+                <div className="createquiz-details">
+                    <p>Title</p>
+                    <div className="createquiz-content-block">
+                        <TextField
+                            hiddenLabel
+                            onChange={e => setTitle(e.target.value)}
+                            value={title}
+                            style={{ minWidth: "300px" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                    </div>
+                    <p>Description</p>
+                    <div className="createquiz-content-block">
+                        <TextField
+                            hiddenLabel
+                            onChange={e => setDescription(e.target.value)}
+                            value={description}
+                            style={{ minWidth: "300px" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                    </div>
                 </div>
-                <div className="createquiz-content-block">
-                    <div className="createquiz-content-block-label">DESCRIPTION :</div>
-                    <TextField
-                        onChange={e => setDescription(e.target.value)}
-                        value={description}
-                        label="Description"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                </div>
-                <Button
-                    style={{ width: "10%", marginTop: "12px" }}
+            </div>
+            <div className="createquiz-buttons">
+                <button
+                    style={{ width: "10%", marginTop: "12px", color: "white", backgroundColor: "#00aeef"}}
                     onClick={onClickSubmit}
                     component={Link}
                     to={`/platform/${props.match.params.platformId}`}
                 >
-                    SUBMIT
-                </Button>
-                <Button
-                    style={{ width: "10%", marginTop: "12px" }}
+                    SAVE
+                </button>
+                <button
+                    style={{ width: "10%", marginTop: "12px", color: "#929292", backgroundColor: "transparent"}}
                     component={Link}
                     to={`/platform/${props.match.params.platformId}`}
                 >
                     CANCEL
-                </Button>
+                </button>
             </div>
         </div>
     );

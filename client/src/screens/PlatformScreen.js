@@ -11,6 +11,7 @@ import Quiz from "../components/Quiz.js";
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import QuizCard from "../components/QuizCard.js";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 
 function PlatformScreen(props) {
@@ -87,13 +88,13 @@ function PlatformScreen(props) {
                 {platform && <Tags platform={platform} />}
                 {platform && <PostArea platform={platform} />}
                 <div className="platformContentArea2">
-                  <Button
+                  <button
                             className="createQuizButton"
                             style={isOwner ? {} : { display: "none" }}
                             onClick={() => history.push("/CreateQuiz/" + props.match.params.id)}
                       >
-                            Create Quiz
-                      </Button>
+                            <AddOutlinedIcon sx={{fontSize: 20, color: "#00aeef"}}/> Add Quiz
+                      </button>
                   <div className="platformContentArea">
                     <div className="platformQuizHeader">
                         <p>Quiz</p>

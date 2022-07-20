@@ -6,6 +6,10 @@ import axios from "axios";
 import { set } from "mongoose";
 import Box from '@mui/material/Box';
 import { ConstructionOutlined } from "@mui/icons-material";
+import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined';
+import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 function CreateQuestion(props) {
     const history = useHistory();
@@ -35,7 +39,15 @@ function CreateQuestion(props) {
     const [errorFour, setErrorFour] = useState(false)
     const [errorText, setErrorText] = useState(false)
 
-
+    useEffect(() => {
+        if (quiz.length === max) {
+            if (index+1 >= quiz.length) { 
+                setNextDisabled(true)
+            } else {
+                setNextDisabled(false)
+            }
+        }
+    })
 
     useEffect(() => {
         console.log("updating info");
@@ -116,10 +128,12 @@ function CreateQuestion(props) {
         }
         setUpdate(true);
     };
+
     const onNextClick = e => {
         e.preventDefault();
         setIndex(index + 1);
     };
+
     const addQuestion = e => {
         e.preventDefault();
         setIndex(max);
@@ -198,9 +212,9 @@ function CreateQuestion(props) {
                 
                 setIndex(0);
                 setBackDisabled(true);
-                if (max > 0) {
-                    setNextDisabled(false);
-                }
+                // if (max > 0) {
+                //     setNextDisabled(false);
+                // }
                 //setLoading(false);
                 return;
             })
@@ -234,112 +248,94 @@ function CreateQuestion(props) {
     // }, []);
 
     return (
-        <div className="createquiz-main-container">
+        <div className="createQuestionScreen">
             {/* <Tags/> */}
             {/* <PostArea/>             */}
-            <Typography fontSize="30px" marginBottom="24px">
-                Edit Quiz Screen
-            </Typography>
-            <div className="createquiz-content">
+            <p style={{fontSize: "2rem", textAlign: "center"}}>Edit / Add Quiz</p>
             <Box component="form" autoComplete="off">
-                <div className="createquiz-content-block">
-                    <TextField
-                        error={errorText}
-                        helperText={errorText && "Empty Entry"}
-                        required                        
-                        onChange={e => (setText(e.target.value), e.target.value != "" ? setErrorText(false) : setErrorText(true))}
-                        value={text}
-                        label= {`Question ${index+1}`}
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                    <TextField
-                        error={answerError}
-                        helperText={answerError && "Answer Not Found In Options"}
-                        required
-                        onChange={e => (setAnswer(e.target.value), e.target.value != "" ? setAnswerError(false) : setAnswerError(true))}
-                        value={answer}
-                        label="Answer"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                    <TextField
-                        error={errorOne}
-                        helperText={errorOne && "Empty Entry"}
-                        required
-                        onChange={e => (setOptionOne(e.target.value), e.target.value != "" ? setErrorOne(false) : setErrorOne(true))}
-                        value={optionOne}
-                        label="First"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                    <TextField
-                        error={errorTwo}
-                        helperText={errorTwo && "Empty Entry"}
-                        required
-                        onChange={e => (setOptionTwo(e.target.value), e.target.value != "" ? setErrorTwo(false) : setErrorTwo(true))}
-                        value={optionTwo}
-                        label="Second"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                    <TextField
-                        error={errorThree}
-                        helperText={errorThree && "Empty Entry"}
-                        required
-                        onChange={e => (setOptionThree(e.target.value), e.target.value != "" ? setErrorThree(false) : setErrorThree(true))}
-                        value={optionThree}
-                        label="Third"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
-                    <TextField
-                        error={errorFour}
-                        helperText={errorFour && "Empty Entry"}
-                        required
-                        onChange={e => (setOptionFour(e.target.value), e.target.value != "" ? setErrorFour(false) : setErrorFour(true))}
-                        value={optionFour}
-                        label="Fourth"
-                        style={{ minWidth: "300px" }}
-                        inputProps={{ style: { fontSize: "14px" } }}
-                        InputLabelProps={{ style: { fontSize: "12px" } }}
-                    />
+                <div className="createQuestionInputs">
+                    <div className="questionsAddButtons">
+                        <button disabled={questionDisabled} style={{ marginTop: "12px" }} onClick={addQuestion}><AddOutlinedIcon sx={{fontSize: "20px"}}/></button>
+                        <button disabled={deleteDisabled} style={{  marginTop: "12px" }} onClick={onDeleteClick}><DeleteOutlineOutlinedIcon sx={{fontSize: "20px"}}/></button>
+                    </div>
+                    <div className="createQuestionsTextfields">
+                        <TextField
+                            error={errorText}
+                            helperText={errorText && "Empty Entry"}
+                            required                        
+                            onChange={e => (setText(e.target.value), e.target.value != "" ? setErrorText(false) : setErrorText(true))}
+                            value={text}
+                            label= {`Question ${index+1}`}
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                        <TextField
+                            error={answerError}
+                            helperText={answerError && "Answer Not Found In Options"}
+                            required
+                            onChange={e => (setAnswer(e.target.value), e.target.value != "" ? setAnswerError(false) : setAnswerError(true))}
+                            value={answer}
+                            label="Answer"
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                        <TextField
+                            error={errorOne}
+                            helperText={errorOne && "Empty Entry"}
+                            required
+                            onChange={e => (setOptionOne(e.target.value), e.target.value != "" ? setErrorOne(false) : setErrorOne(true))}
+                            value={optionOne}
+                            label="First"
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                        <TextField
+                            error={errorTwo}
+                            helperText={errorTwo && "Empty Entry"}
+                            required
+                            onChange={e => (setOptionTwo(e.target.value), e.target.value != "" ? setErrorTwo(false) : setErrorTwo(true))}
+                            value={optionTwo}
+                            label="Second"
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                        <TextField
+                            error={errorThree}
+                            helperText={errorThree && "Empty Entry"}
+                            required
+                            onChange={e => (setOptionThree(e.target.value), e.target.value != "" ? setErrorThree(false) : setErrorThree(true))}
+                            value={optionThree}
+                            label="Third"
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                        <TextField
+                            error={errorFour}
+                            helperText={errorFour && "Empty Entry"}
+                            required
+                            onChange={e => (setOptionFour(e.target.value), e.target.value != "" ? setErrorFour(false) : setErrorFour(true))}
+                            value={optionFour}
+                            label="Fourth"
+                            style={{ minWidth: "300px", marginBottom: "2rem" }}
+                            inputProps={{ style: { fontSize: "14px" } }}
+                            InputLabelProps={{ style: { fontSize: "12px" } }}
+                        />
+                    </div>
+                    <div className="questionsMoveButtons">
+                        <button disabled={backDisabled} style={{ width: "10%", marginTop: "12px" }} onClick={onBackClick}><NavigateBeforeOutlinedIcon sx={{fontSize: "30px"}}/></button>
+                        <button type="submit" disabled={nextDisabled} style={{ width: "10%", marginTop: "12px" }} onClick={onNextClick}><NavigateNextOutlinedIcon sx={{fontSize: "30px"}}/></button>
+                    </div>
                 </div>
-                <Button type="submit" style={{ width: "10%", marginTop: "12px" }} onClick={onClickSubmit}>
-                    SUBMIT
-                </Button>
-                <Button style={{ width: "10%", marginTop: "12px" }} onClick={() => history.goBack()}> 
-                    CANCEL
-                </Button>
-                <Button disabled={backDisabled} style={{ width: "10%", marginTop: "12px" }} onClick={onBackClick}>
-                    Back
-                </Button>
-                <Button
-                    type="submit"
-                    disabled={nextDisabled}
-                    style={{ width: "10%", marginTop: "12px" }}
-                    onClick={onNextClick}
-                >
-                    Next
-                </Button>
-                <Button
-                    disabled={questionDisabled}
-                    style={{ width: "10%", marginTop: "12px" }}
-                    onClick={addQuestion}
-                >
-                    Add Question
-                </Button>
-                <Button disabled={deleteDisabled} style={{ width: "10%", marginTop: "12px" }} onClick={onDeleteClick}>
-                    Delete
-                </Button>
+                <div className="questionsSaveButtons">
+                    <button type="submit" style={{ backgroundColor: "#00aeef", color: "white"}} onClick={onClickSubmit}>SAVE</button>
+                    <button style={{ backgroundColor: "transparent", color: "#929292"}} onClick={() => history.goBack()}>RETURN</button>
+                </div>
                 </Box>
-            </div>
-            
         </div>
     );
 }

@@ -29,7 +29,7 @@ body{
   position: absolute;
   height: 100vh;
   
-  font-size: 1.6rem; /* 16px */
+  font-size: 1.8rem; /* 16px */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -160,6 +160,10 @@ img.hamburger{
 
 .logoutButton{
   cursor:pointer;
+}
+
+.loginButtons img{
+  cursor: pointer;
 }
 
 .login a{
@@ -299,6 +303,7 @@ img.hamburger{
   font-size: 2rem;
   padding: 1px 1.2rem;
   width: 13rem;
+  cursor: pointer;
 }
 .tags {
   margin-top: 1rem;
@@ -320,7 +325,7 @@ img.hamburger{
   border-width: 1px;
   overflow: hidden;
   width : 100%;
-  height : 200px;
+  height : 300px;
   display : flex;
   justify-content: center;
   align-items: center;
@@ -415,6 +420,7 @@ img.hamburger{
   border: none;
   background: transparent;
   color: #929292;
+  cursor: pointer;
 }
 
 /*Start of Timer Component*/
@@ -1553,16 +1559,34 @@ th button:disabled{
 .platformContentArea2{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-width: 0px 1px 1px 1px;
   border-color: #D2D2D2;
   border-radius: 0 0 5px 5px;
   border-style: solid;
-  display: block;
+  display: flex;
+  padding: 0 3rem 0 3rem;
 }
 
 .createQuizButton{
-  display: block;
-  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 1rem 0 1rem 0;
+}
+
+.platformContentArea2 button{
+  color: #00aeef;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.createQuizButton button {
+  border: 1px solid #00AEEF;
 }
 
 .platformQuiz{
@@ -1612,15 +1636,124 @@ th button:disabled{
 
 /*end of platformscreen*/
 
-/*start of createQuestion*/
+/*start of createQuiz*/
+
+.createquiz-main-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.createquiz-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid;
+  border-color: #d2d2d2;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.createquiz-image-block{
+  width: 100%;
+  padding: 5rem 0 5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.createquiz-image-block img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
 .createquiz-content-block{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
 
-/*end of createQuestion*/
+.createquiz-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createquiz-buttons button{
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.2rem;
+}
+
+/*end of createQuiz*/
+
+
+/* start of createQuestion */
+.createQuestionScreen {
+  display: flex;
+  flex-direction: column;
+}
+
+.createQuestionInputs {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #d2d2d2;
+  padding: 3rem 5rem 3rem 5rem;
+}
+
+.createQuestionInputs button{
+  border-radius: 5px;
+}
+
+.questionsAddButtons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.questionsAddButtons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.createQuestionsTextfields {
+  display: flex;
+  flex-direction: column;
+}
+
+.questionsSaveButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 0 2rem 0;
+}
+
+.questionsSaveButtons button {
+  border: 1px solid;
+  border-radius: 5px;
+  width: 8rem;
+  cursor: pointer;
+}
+
+.questionsMoveButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.questionsMoveButtons button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+/* end of createQuestion */
 
 /* Start of Help Page */
 .helpPage {
