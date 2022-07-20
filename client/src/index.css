@@ -813,12 +813,69 @@ top: 69rem;
 }
 
 /*end of QuizScore page*/
+.swipercategories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide {
+  opacity: 0.6;
+  -webkit-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
+.swiper-slide {
+  width: 80%;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+/* target the active bullet */
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #00aeef;
+  opacity: 1;
+}
+
+.homescreenLine{
+  width: 100%;
+  border-top: 1px solid #d2d2d2;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
 
 .homeItems {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .line{

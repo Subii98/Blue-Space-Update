@@ -151,10 +151,12 @@ function HomeScreen(props) {
               <MessageModal variant="danger">{error}</MessageModal>
           ) : (
               <div>
+                
                   <SwiperCategories></SwiperCategories>
+                  <div className='homescreenLine'/>
                   <div className="homeItems">
                       <div className="latestQuiz">
-                          <p style={{ textAlign: "center", color: "#929292" }}>Popular Quizzes</p>
+                          <p style={{ textAlign: "center", color: "#929292"}}>Popular Quizzes</p>
                           <div className="line" />
                             <QuizItems currentItems={currentItems2}></QuizItems>
                             <ReactPaginate

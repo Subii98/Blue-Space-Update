@@ -45,7 +45,8 @@ function SwiperCategories() {
         );
     }
     return (
-        <div>
+        <div className="swipercategories">
+            <p style={{fontSize: "2.5rem", textAlign: "center", padding: "0"}}>Categories</p>
             {/* <Swiper
                 id="main"
                 tag="section"
@@ -56,13 +57,15 @@ function SwiperCategories() {
                 slidesPerView={1}
                 centeredSlides="true"
             > */}
-            <Swiper
+            <Swiper style={{ width: "50rem", height: "35rem"}}
                 grabCursor="true"
                 centeredSlides="true"
-                spaceBetween={0}
-                slidesPerView={1}
+                spaceBetween={30}
+                slidesPerView={2}
+                lazy
                 navigation
-                pagination={{ clickable: true, dynamicBullets: true }}
+                pagination={{ clickable: true, dynamicBullets: false }}
+                loop={true}
             >
                 {slides}
             </Swiper>
