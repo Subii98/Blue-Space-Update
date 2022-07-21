@@ -147,6 +147,6 @@ client/collections
 
 
 #ignore build
-client/build
+# client/build
 *.json
 
