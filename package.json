@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch server --exec node --experimental-modules server/server.js"
+    "start": "nodemon --watch server --exec node --experimental-modules server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
     // "heroku-prebuild": "npm install -f",
     // "heroku-postbuild": "npm run prod"
   },
