@@ -5,9 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch server --exec node --experimental-modules server/server.js",
-    "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "npm run prod"
+    "start": "nodemon --watch server --exec node --experimental-modules server/server.js"
+    // "heroku-prebuild": "npm install -f",
+    // "heroku-postbuild": "npm run prod"
   },
   "repository": {
     "type": "git",
