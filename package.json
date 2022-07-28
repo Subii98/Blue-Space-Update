@@ -11,7 +11,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "cross-env NODE_PATH=src npm run build"
-    
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
     "@mui/icons-material": "^5.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.2.0",
