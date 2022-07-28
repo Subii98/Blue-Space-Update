@@ -105,3 +105,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);
 });
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('../client/build'))
+}
