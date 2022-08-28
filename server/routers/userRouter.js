@@ -11,7 +11,7 @@ import { uploadModule } from "../utils.js";
 const require = createRequire(import.meta.url);
 
 const userRouter = express.Router();
-const clientId = "506755665568-6jjmmjkcpuc4of62a2s5idulrbuebr69.apps.googleusercontent.com";
+const clientId = "862401961471-9rarhcogm291ddfp3q84dqk6cf3heaf6.apps.googleusercontent.com";
 userRouter.use(cookieParser());
 //authenthication
 

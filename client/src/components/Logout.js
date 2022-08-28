@@ -2,7 +2,9 @@ import React from 'react'
 import { useContext, useEffect, useState } from "react";
 import { GlobalStoreContext } from "../store";
 import { GoogleLogout } from "react-google-login";
-const clientId = '506755665568-6jjmmjkcpuc4of62a2s5idulrbuebr69.apps.googleusercontent.com';
+import { OAuthClientID } from "../utils/oauth";
+
+const clientId = OAuthClientID;
 
 
 function Logout() {
