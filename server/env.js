@@ -3,6 +3,6 @@ import path from "path";
 
 export default () => {
     dotenv.config({
-        path: path.resolve(process.cwd(), "server/.env"),
+        path: path.resolve(process.cwd(), ".env"),
     });
 };

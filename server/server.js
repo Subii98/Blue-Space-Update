@@ -20,7 +20,7 @@ const __dirname = path.resolve();
 const ORIGIN = process.env.ORIGIN ? process.env.ORIGIN : "127.0.0.1:3000";
 const MONGODB_URL = process.env.MONGODB_URL
   ? process.env.MONGODB_URL
-  : "mongodb://localhost/bluespace";
+  : "mongodb://localhost:27017/bluespace";
 //console.log("Mongodb url: ", MONGODB_URL);
 //just gets current user
 app.get("/me", async (req, res) => {
@@ -52,9 +52,9 @@ app.use("/githubwebhook", (req, res) => {
   res.status(200);
 });
 
-app.use("/static",express.static(path.join(__dirname, "./client/build/static")));
-app.use("/images", express.static(path.join(__dirname, "./client/build/images")));
-app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
+app.use("/static",express.static(path.join(__dirname, "../client/build/static")));
+app.use("/images", express.static(path.join(__dirname, "../client/build/images")));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 app.use(express.json({ limit: "50mb" }));
 app.use(
   express.urlencoded({
@@ -75,7 +75,7 @@ app.use(
 app.use("/", function (req, res, next) {
   //localhost:3000/api/v1/request
   if (req.path.indexOf("api") != -1) return next();
-  res.sendFile(path.resolve(__dirname, "./client/build/index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
 });
 
 mongoose
@@ -107,5 +107,5 @@ app.listen(port, () => {
 });
 
 if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('../client/build'))
+  app.use(express.static(path.resolve(__dirname, "../client/build/index.html")))
 }

@@ -1,12 +1,9 @@
 import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { GlobalStoreContext } from "../store";
-import { GoogleLogin } from "react-google-login";
 // refresh token
 import { refreshTokenSetup } from "../utils/refreshToken";
-import { OAuthClientID } from "../utils/oauth";
-
-const clientId = OAuthClientID;
+import GoogleLogin from "./GoogleLogin";
 
 /*
 function Login() {
@@ -41,12 +38,12 @@ function Login() {
     const [signedIn, setSignedIn] = useState(0);
 
     const onSuccess = async googleData => {
-        //console.log(googleData);
+        console.log("googleData : ", googleData);
 
         const res = await fetch("/api/v1/auth/google", {
             method: "POST",
             body: JSON.stringify({
-                token: googleData.tokenId,
+                token: googleData.credential,
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -68,23 +65,10 @@ function Login() {
     const onFailure = res => {
         console.log("[Login failed] res: ", res);
     };
+
     return (
         <>
-            <GoogleLogin
-                clientId={clientId}
-                buttonText="Log in with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={"single_host_origin"}
-                isSignedIn={true}
-                render={renderProps => {
-                    return (
-                        <a className="loginButton" onClick={renderProps.onClick}>
-                            LOGIN
-                        </a>
-                    );
-                }}
-            />
+            <GoogleLogin onSuccess={onSuccess} onFailure={onFailure} />
         </>
     );
 }

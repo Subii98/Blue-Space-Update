@@ -11,7 +11,7 @@ import { uploadModule } from "../utils.js";
 const require = createRequire(import.meta.url);
 
 const userRouter = express.Router();
-const clientId = "862401961471-9rarhcogm291ddfp3q84dqk6cf3heaf6.apps.googleusercontent.com";
+const clientId = "708689825070-6m8dt0chib1qbvnasg843au6t9rq2ii6.apps.googleusercontent.com";
 userRouter.use(cookieParser());
 //authenthication
 
@@ -241,9 +241,9 @@ userRouter.post(
             { $addToSet: { subscribedPlatforms: platformId } }
         );
         const updatePlatform = await Platform.updateOne(
-            { _id: platformId},
-            { $addToSet: {subscriber : userId}}
-        )
+            { _id: platformId },
+            { $addToSet: { subscriber: userId } }
+        );
         res.send(updateuser);
     })
 );
@@ -257,9 +257,9 @@ userRouter.post(
             { $pull: { subscribedPlatforms: platformId } }
         );
         const updatePlatform = await Platform.updateOne(
-            { _id: platformId},
-            { $pull: {subscriber : userId}}
-        )
+            { _id: platformId },
+            { $pull: { subscriber: userId } }
+        );
         res.send(updateuser);
     })
 );
@@ -275,7 +275,6 @@ userRouter.get(
         res.send(updateuser);
     })
 );
-
 
 userRouter.get(
     "/get_user",
@@ -336,13 +335,13 @@ userRouter.post(
         const userImagePath = req.files[0] ? req.files[0].path : null;
         console.log("-----------------", newName);
         console.log("!!!", userId);
-        const platform = await Platform.find({userID: userId});
+        const platform = await Platform.find({ userID: userId });
         console.log("!!!plat", platform);
-        
+
         if (platform) {
             const modifyplatform = await Platform.updateMany(
                 { userId: userId },
-                { $set: { userName: newName }}
+                { $set: { userName: newName } }
             );
         }
 
@@ -461,10 +460,11 @@ userRouter.get(
             {
                 $addFields: { subscriber_count: { $size: { $ifNull: ["$subscriber", []] } } },
             },
-        ]).sort({ subscriber_count: -1 }).limit(3);
+        ])
+            .sort({ subscriber_count: -1 })
+            .limit(3);
         console.log("recent object", recent);
         res.send(recent);
-                
     })
 );
 

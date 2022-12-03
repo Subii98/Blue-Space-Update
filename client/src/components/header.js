@@ -89,6 +89,8 @@ function Header(props) {
 
     return (
       <header>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <div className="all">
           <a href="/">
             <img
@@ -124,15 +126,9 @@ function Header(props) {
               [<Link to="/categories">
                 <button type="button">CATEGORIES</button>
               </Link>,
-              <LoginHamburger>
-                <button type="button">CREATE</button>
-              </LoginHamburger>,
-              <LoginHamburger>
-                <button type="button">LEADERBOARD</button>
-              </LoginHamburger>,
-              <LoginHamburger>
-                <button type="button">STORE</button>
-              </LoginHamburger>,
+              <button type="button">CREATE</button>,
+              <button type="button">LEADERBOARD</button>,
+              <button type="button">STORE</button>,
               <Link to="/help">
                 <button type="button">HELP</button>
               </Link>]
